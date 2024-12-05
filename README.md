@@ -1,45 +1,43 @@
-# automated-security-incident-response
-**Project: Automated Security Incident Response System**
+# Automated Security Incident Response System
 
-**1. Project Overview:**
-Develop an automated system that identifies and responds to security incidents in real-time. The system should integrate with various data sources, analyze potential threats, and execute predefined response actions to mitigate risks.
+This project demonstrates an automated system to ingest, detect, and respond to security incidents in real-time.
 
-**2. Key Features to Implement:**
+## Features
+- Ingest logs via a Flask API.
+- Parse and store security logs in JSON format.
+- Future: Threat detection and automated incident response.
 
-- **Data Ingestion:** Collect security logs and alerts from multiple sources, such as firewalls, intrusion detection systems, and application logs.
+## Development Environment Setup
 
-- **Threat Detection:** Utilize machine learning algorithms to identify anomalies and potential security threats within the ingested data.
+### Prerequisites
+- Python 3.9+
+- `pip` package manager
 
-- **Incident Response Automation:** Define and automate response playbooks for different types of security incidents, including alerting relevant stakeholders, isolating affected systems, and initiating remediation processes.
+### Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/cybergardner/automated-security-incident-response.git
+   cd automated-security-incident-response
+   ```
 
-- **Dashboard Interface:** Create a user-friendly dashboard that displays real-time incident statuses, system health metrics, and historical data analysis.
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On macOS/Linux
+   .\venv\Scripts\activate   # On Windows
+   ```
 
-**3. Technical Skills to Highlight:**
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- **Programming Languages:** Develop core functionalities using languages such as Python or Go, known for their effectiveness in security applications.
+### Running the Application
+1. Start the Flask API server:
+   ```bash
+   python app/main.py
+   ```
 
-- **Cloud Integration:** Demonstrate experience with cloud platforms (e.g., AWS, Azure, GCP) by integrating cloud-based data sources and deploying components within cloud environments.
-
-- **Security Tools:** Showcase proficiency with security information and event management (SIEM) systems, intrusion detection/prevention systems (IDS/IPS), and other relevant security tools.
-
-- **Automation Frameworks:** Implement automation using frameworks like Ansible, Puppet, or custom scripts to streamline response actions.
-
-- **Machine Learning:** Apply machine learning techniques for threat detection, highlighting your ability to leverage advanced analytics in security contexts.
-
-**4. Documentation:**
-
-- **Code Comments:** Ensure your code is well-commented to explain complex logic and decision-making processes.
-
-- **Architecture Diagrams:** Include diagrams that depict the system architecture, data flow, and integration points to offer a clear understanding of the system's design.
-
-**5. Testing and Validation:**
-
-- **Unit and Integration Tests:** Develop tests to validate individual components and their interactions, ensuring the system functions as intended.
-
-- **Simulated Incidents:** Create scenarios to test the system's response to various types of security incidents, demonstrating its effectiveness and reliability.
-
-**6. Deployment:**
-
-- **Containerization:** Use Docker to containerize the application, facilitating easy deployment and scalability.
-
-- **Continuous Integration/Continuous Deployment (CI/CD):** Set up CI/CD pipelines to automate testing and deployment processes, showcasing your commitment to modern development practices.
+2. Test log ingestion with sample data:
+   ```bash
+   curl -X POST http://127.0.0.1:5000/ingest -H "Content-Type: application/json" -d '{"test": "data"}'
